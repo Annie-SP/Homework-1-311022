@@ -5,7 +5,7 @@
 const currentMaxValue = 4589;
 let reverseMaxValue;
 
-reverseMaxValue = (Array.from(String(currentMaxValue))).reverse();
+reverseMaxValue = Array.from(String(currentMaxValue)).reverse();
 reverseMaxValue = reverseMaxValue.join('');
 reverseMaxValue = +reverseMaxValue;
 
@@ -19,7 +19,7 @@ let productOfArray;
 
 productOfArray = resultsArray.flat(Infinity);
 productOfArray = productOfArray.reduce(
-	(a, b) => a * b);
+	(a, b) => a * b, 1);
 
 console.log(productOfArray); // 24 -->
 
@@ -34,17 +34,33 @@ let initials;
 
 
 
-initials = userNames.sort().join(' ').split(' ').map(word => word[0]).join(".").split(" ");
+initials = userNames.sort().join(' . ').split(' ').map(word => word[0]).join(". ").split('. ..');
 
 console.log(initials); // [ "Г.П.А", "П.О.І", "Р.А.О"]
 
 
 
-initials = ((userNames.sort()).map(
-	(users) => users.split(" ")));
-console.log('на підмасиви -->', initials);
 
-initials.forEach(array => console.log("виводить перші букви", array.map(([word]) => word[0]).join('.').split(" ")));
+// initials = userNames.sort();
+// console.log('sort -->', initials);
+
+// initials = initials.join(' . ');
+// console.log('join -->', initials);
+
+// initials = initials.split(' ');
+// console.log('split -->', initials);
+
+// initials = initials.map(word => word[0]);
+// console.log('map -->', initials);
 
 
-//а як його об'єднати в одне я не знаю
+// initials = initials.join(". ");
+// console.log('join -->', initials);
+
+
+// initials = initials.split('. ..');
+
+// console.log( initials);
+
+
+
