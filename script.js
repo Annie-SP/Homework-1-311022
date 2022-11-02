@@ -34,33 +34,33 @@ let initials;
 
 
 
-initials = userNames.sort().join(' . ').split(' ').map(word => word[0]).join(". ").split('. ..');
+initials = userNames.sort().join(' . ').split(' ').map(word => word[0]).join(".").split('...');
 
 console.log(initials); // [ "Г.П.А", "П.О.І", "Р.А.О"]
 
 
 
 
-// initials = userNames.sort();
-// console.log('sort -->', initials);
+initials = userNames.sort();
+console.log('sort -->', initials);
 
-// initials = initials.join(' . ');
-// console.log('join -->', initials);
+initials = initials.join(' . ');
+console.log('join -->', initials);
 
-// initials = initials.split(' ');
-// console.log('split -->', initials);
+initials = initials.split(' ');
+console.log('split -->', initials);
 
-// initials = initials.map(word => word[0]);
-// console.log('map -->', initials);
-
-
-// initials = initials.join(". ");
-// console.log('join -->', initials);
+initials = initials.map(word => word[0]);
+console.log('map -->', initials);
 
 
-// initials = initials.split('. ..');
+initials = initials.join(".");
+console.log('join -->', initials);
 
-// console.log( initials);
+
+initials = initials.split('...');
+
+console.log( initials);
 
 
 
