@@ -32,12 +32,12 @@ const userNames = [ "Петрик Ольга Іванівна",
 					"Рудко Андрій Опанасович"];
 
 let initials = userNames.map( 
-	users => { 
-		return users.split(' ').map((word) => word[0] + `.`).join('')
-	});
+	wholeUserName => { 
+		return wholeUserName.split(' ').map((word) => word[0] + `.`).join('')
+	}).sort();
 	
 
-console.log(initials.sort());
+console.log(initials);
 
 
 
