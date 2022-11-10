@@ -1,66 +1,75 @@
-	`use strict`;
+// **Задача про обчислення різниці часу**
 
-// 2. **Задача на розворот числа:**
+// Напишіть функцію яка буде буде приймати 3 параметри
 
-const currentMaxValue = 4589;
-let reverseMaxValue;
+// - початкову дату (string)
+// - кінцеву дату (string)
+// - розмірність ('days', 'hours', 'minutes', seconds)
 
-reverseMaxValue = Array.from(String(currentMaxValue)).reverse();
-reverseMaxValue = reverseMaxValue.join('');
-reverseMaxValue = +reverseMaxValue;
+// Функція повертатиме часовий період між цими датами згідно розмірності.
+// Також вкажіть значення по замовчуванню для всіх цих параметрів (на ваш вибір).
+// Функція має коректно працювати навіть якщо початкова дата пізніше ніж кінцева дата.
+// Приклади:
 
-console.log(reverseMaxValue); // 9854
-console.log(typeof reverseMaxValue); // 'number'
+// durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  *// поверне '86400 seconds'*
+// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days')  *// поверне '362 days'*
 
-// 3. **Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:**
+// **Задача про перетворення об'єкту**
 
-const resultsArray = [1, 2, [3, [4]]];
-let productOfArray;
+// Допустимо у вас є об'єкт, у якому кожен ключ - це назва товару (одинм словом), а значення - його ціна.
+// Напишіть функцію яка буде всі ключі переводити у нижній регістр, а всі ціни буде заокруглювати до двох знаків після коми.
+// Приклад:
 
-productOfArray = resultsArray.flat(Infinity);
-productOfArray = productOfArray.reduce(
-	(a, b) => a * b, 1);
+// *// приклад об'єкту*
+// const priceData = {
+//   Apples: '23.4',
+//   BANANAS: '48',
+//   oRAngGEs: '48.7584',
+// };
 
-console.log(productOfArray); // 24 -->
+// function optimizer(data) {
+//   *// тут ваш код*
+// };
 
+// let updatedPriceData = optimizer(priceData);
 
+// console.log(updatedPriceData) *// {apples: '23.40', bananas: '48.00', oranges: '48.76'}*
 
-// 1. **Задача на повернення ініціалів для кожного імені з масиву, посортованих в алфавітному порядку:**
+// **Задача про рекурсію та ітерацію**
 
-const userNames = [ "Петрик Ольга Іванівна", 
-					"Гнатюк Петро Антонович", 
-					"Рудко Андрій Опанасович"];
-let initials;
+// Напишіть:
 
+// 1. Функцію яка рекурсивно буде знаходити суму всіх непарних додатніх чисел до якогось числа.
 
+// Приклад:
 
-initials = userNames.sort().join(' . ').split(' ').map(word => word[0]).join(".").split('...');
+function recursiveOddSumTo(number) {
 
-console.log(initials); // [ "Г.П.А", "П.О.І", "Р.А.О"]
+  // *// тут ваш код*
+  if (number === 1){
+  	return 1
+  }
+  return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
 
+};
 
+console.log(recursiveOddSumTo(1)) // 1*
+console.log(recursiveOddSumTo(10)) // 25*
 
+// 1. Функцію яка ітеративно (в циклі) буде знаходити суму всіх непарних додатніх чисел до якогось числа.
 
-initials = userNames.sort();
-console.log('sort -->', initials);
+// Приклад:
 
-initials = initials.join(' . ');
-console.log('join -->', initials);
+function iterativeOddSumTo(number) {
 
-initials = initials.split(' ');
-console.log('split -->', initials);
+  // тут ваш код*
 
-initials = initials.map(word => word[0]);
-console.log('map -->', initials);
+ for (let number=1; number++) {
+return (number*(number % 2));
+ };
+ return number;
+};
 
-
-initials = initials.join(".");
-console.log('join -->', initials);
-
-
-initials = initials.split('...');
-
-console.log( initials);
-
-
+console.log(iterativeOddSumTo(1)); // 1*
+console.log(iterativeOddSumTo(10)); // 25*
 
