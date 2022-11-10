@@ -1,27 +1,27 @@
 	`use strict`;
 
-// 2. **Задача на розворот числа:**
+// // 2. **Задача на розворот числа:**
 
-const currentMaxValue = 4589;
-let reverseMaxValue;
+// const currentMaxValue = 4589;
+// let reverseMaxValue;
 
-reverseMaxValue = Array.from(String(currentMaxValue)).reverse();
-reverseMaxValue = reverseMaxValue.join('');
-reverseMaxValue = +reverseMaxValue;
+// reverseMaxValue = Array.from(String(currentMaxValue)).reverse();
+// reverseMaxValue = reverseMaxValue.join('');
+// reverseMaxValue = +reverseMaxValue;
 
-console.log(reverseMaxValue); // 9854
-console.log(typeof reverseMaxValue); // 'number'
+// console.log(reverseMaxValue); // 9854
+// console.log(typeof reverseMaxValue); // 'number'
 
-// 3. **Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:**
+// // 3. **Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:**
 
-const resultsArray = [1, 2, [3, [4]]];
-let productOfArray;
+// const resultsArray = [1, 2, [3, [4]]];
+// let productOfArray;
 
-productOfArray = resultsArray.flat(Infinity);
-productOfArray = productOfArray.reduce(
-	(a, b) => a * b, 1);
+// productOfArray = resultsArray.flat(Infinity);
+// productOfArray = productOfArray.reduce(
+// 	(a, b) => a * b, 1);
 
-console.log(productOfArray); // 24 -->
+// console.log(productOfArray); // 24 -->
 
 
 
@@ -30,37 +30,37 @@ console.log(productOfArray); // 24 -->
 const userNames = [ "Петрик Ольга Іванівна", 
 					"Гнатюк Петро Антонович", 
 					"Рудко Андрій Опанасович"];
-let initials;
+
+let initials = userNames.map( 
+	users => { 
+		return users.split(' ').map((word) => word[0] + `.`).join('')
+	});
+	
+
+console.log(initials.sort());
 
 
 
-initials = userNames.sort().join(' . ').split(' ').map(word => word[0]).join(".").split('...');
 
-console.log(initials); // [ "Г.П.А", "П.О.І", "Р.А.О"]
+//rkod true
 
+// initials = userNames.sort();
+// console.log('sort -->', initials);
 
+// initials = initials.join(' / ');
+// console.log('join -->', initials);
 
+// initials = initials.split(' ');
+// console.log('split -->', initials);
 
-initials = userNames.sort();
-console.log('sort -->', initials);
-
-initials = initials.join(' . ');
-console.log('join -->', initials);
-
-initials = initials.split(' ');
-console.log('split -->', initials);
-
-initials = initials.map(word => word[0]);
-console.log('map -->', initials);
+// initials = initials.map(word => word[0]);
+// console.log('map -->', initials);
 
 
-initials = initials.join(".");
-console.log('join -->', initials);
+// initials = initials.join(".");
+// console.log('join -->', initials);
 
 
-initials = initials.split('...');
+// initials = initials.split('./.');
 
-console.log( initials);
-
-
-
+// console.log( initials);
