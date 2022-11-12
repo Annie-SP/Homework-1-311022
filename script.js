@@ -1,3 +1,4 @@
+`use strict`;
 // **Задача про обчислення різниці часу**
 
 // Напишіть функцію яка буде буде приймати 3 параметри
@@ -16,24 +17,30 @@
 
 // **Задача про перетворення об'єкту**
 
-// Допустимо у вас є об'єкт, у якому кожен ключ - це назва товару (одинм словом), а значення - його ціна.
-// Напишіть функцію яка буде всі ключі переводити у нижній регістр, а всі ціни буде заокруглювати до двох знаків після коми.
+// Допустимо у вас є об'єкт, у якому кожен ключ - це назва товару (одинм словом), 
+// а значення - його ціна.
+// Напишіть функцію яка буде всі ключі переводити у нижній регістр, 
+// \а всі ціни буде заокруглювати до двох знаків після коми.
 // Приклад:
 
-// *// приклад об'єкту*
-// const priceData = {
-//   Apples: '23.4',
-//   BANANAS: '48',
-//   oRAngGEs: '48.7584',
-// };
+// приклад об'єкту*
+const priceData = {
+  Apples: '23.4',
+  BANANAS: '48',
+  oRAnGEs: '48.7584',
+};
 
-// function optimizer(data) {
-//   *// тут ваш код*
-// };
+function optimizer(data) {
+  // тут ваш код*
+	return Object.fromEntries(
+		Object.entries(priceData).map(([key, value]) => 
+			[key.toLowerCase(), parseFloat((value)).toFixed(2)]
+			));
+};
 
-// let updatedPriceData = optimizer(priceData);
+let updatedPriceData = optimizer(priceData);
 
-// console.log(updatedPriceData) *// {apples: '23.40', bananas: '48.00', oranges: '48.76'}*
+console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '48.76'}*
 
 // **Задача про рекурсію та ітерацію**
 
@@ -43,33 +50,33 @@
 
 // Приклад:
 
-function recursiveOddSumTo(number) {
+// function recursiveOddSumTo(number) {
 
-  // *// тут ваш код*
-  if (number === 1){
-  	return 1
-  }
-  return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
+//   if (number === 1){
+//   	return 1
+//   }
+//   return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
 
-};
+// };
 
-console.log(recursiveOddSumTo(1)) // 1*
-console.log(recursiveOddSumTo(10)) // 25*
+// console.log(recursiveOddSumTo(1)) // 1*
+// console.log(recursiveOddSumTo(10)) // 25*
 
 // 1. Функцію яка ітеративно (в циклі) буде знаходити суму всіх непарних додатніх чисел до якогось числа.
 
 // Приклад:
 
-function iterativeOddSumTo(number) {
+// function iterativeOddSumTo(number) {
 
-  // тут ваш код*
+// 	let result = 0;
+  
+//  for (let i=1; i<=number; i+=2) {
+// 	// result += i ;
+// 	result = result + i;
+//  };
+//  return result;
+// };
 
- for (let number=1; number++) {
-return (number*(number % 2));
- };
- return number;
-};
-
-console.log(iterativeOddSumTo(1)); // 1*
-console.log(iterativeOddSumTo(10)); // 25*
+// console.log(iterativeOddSumTo(1)); // 1*
+// console.log(iterativeOddSumTo(10)); // 25*
 
