@@ -1,6 +1,4 @@
 `use strict`;
-// **Задача про обчислення різниці часу**
-
 // Напишіть функцію яка буде буде приймати 3 параметри
 
 // - початкову дату (string)
@@ -12,42 +10,32 @@
 // Функція має коректно працювати навіть якщо початкова дата пізніше ніж кінцева дата.
 // Приклади:
 
+// durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  *// поверне '86400 seconds'*
+// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days')  *// поверне '362 days'*
 function durationBetweenDates (start, end, typeTimes) {
-//  let firstDate = new Date(start, "DD MM YYYY HH:mm:ss");
-//  let lastDate = new Date(end, "DD MM YYYY HH:mm:ss");
-
-// if (typeTimes = 'seconds') {
-// 	return parseInt(lastDate - firstDate) / 1000;
-// } else if (typeTimes = 'minutes') {
-// 	return  parseInt((lastDate - firstDate) / (1000*60) );
-// } else if (typeTimes = 'hours') {
-// 	return parseInt((lastDate - firstDate) / (1000 * 3600));
-// } else if (typeTimes = 'days') {
-// 	return parseInt((lastDate - firstDate) / (1000 * 3600 * 24));
-// }
-// }
 
 let firstDate = new Date(start);
- let lastDate = new Date(end);
-
-if (typeTimes == 'seconds') {
-	return Date.parse((lastDate.getTime() - firstDate.getTime())) / 1000;
-} else if (typeTimes = 'minutes') {
-	return  Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000*60)) );
-} else if (typeTimes = 'hours') {
-	return Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000 * 3600)));
-} else if (typeTimes = 'days') {
-	return Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24)));
-}
-return durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds');
-}
+let lastDate = new Date(end);
 
 
-durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'days');
+let difference = Date.parse(lastDate) - Date.parse(firstDate);
 
-console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds'));  // поверне '86400 seconds'*
-// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days');  // поверне '362 days'*
+if (typeTimes === 'seconds') {
+	return (difference / 1000 ) + ' seconds';
+} else if (typeTimes === 'minutes') {
+	return  (difference / (1000*60) )  + ' minutes';
+} else if (typeTimes === 'hours') {
+	return (difference / (1000 * 3600)) + ' hours';
+} else if (typeTimes === 'days') {
+	return Math.abs((difference / (1000 * 3600 * 24))) + ' days';
+};
+	
+};
 
+durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds');  // поверне '86400 seconds'*
+console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds'));
+durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days');  // поверне '362 days'*
+console.log(durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'));
 
 
 // **Задача про перетворення об'єкту**
