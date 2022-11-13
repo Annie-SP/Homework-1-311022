@@ -12,8 +12,43 @@
 // Функція має коректно працювати навіть якщо початкова дата пізніше ніж кінцева дата.
 // Приклади:
 
-// durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  *// поверне '86400 seconds'*
-// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days')  *// поверне '362 days'*
+function durationBetweenDates (start, end, typeTimes) {
+//  let firstDate = new Date(start, "DD MM YYYY HH:mm:ss");
+//  let lastDate = new Date(end, "DD MM YYYY HH:mm:ss");
+
+// if (typeTimes = 'seconds') {
+// 	return parseInt(lastDate - firstDate) / 1000;
+// } else if (typeTimes = 'minutes') {
+// 	return  parseInt((lastDate - firstDate) / (1000*60) );
+// } else if (typeTimes = 'hours') {
+// 	return parseInt((lastDate - firstDate) / (1000 * 3600));
+// } else if (typeTimes = 'days') {
+// 	return parseInt((lastDate - firstDate) / (1000 * 3600 * 24));
+// }
+// }
+
+let firstDate = new Date(start);
+ let lastDate = new Date(end);
+
+if (typeTimes == 'seconds') {
+	return Date.parse((lastDate.getTime() - firstDate.getTime())) / 1000;
+} else if (typeTimes = 'minutes') {
+	return  Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000*60)) );
+} else if (typeTimes = 'hours') {
+	return Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000 * 3600)));
+} else if (typeTimes = 'days') {
+	return Date.parse(((lastDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24)));
+}
+return durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds');
+}
+
+
+durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'days');
+
+console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds'));  // поверне '86400 seconds'*
+// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days');  // поверне '362 days'*
+
+
 
 // **Задача про перетворення об'єкту**
 
@@ -50,33 +85,33 @@ console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '
 
 // Приклад:
 
-// function recursiveOddSumTo(number) {
+function recursiveOddSumTo(number) {
 
-//   if (number === 1){
-//   	return 1
-//   }
-//   return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
+  if (number === 1){
+  	return 1
+  }
+  return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
 
-// };
+};
 
-// console.log(recursiveOddSumTo(1)) // 1*
-// console.log(recursiveOddSumTo(10)) // 25*
+console.log(recursiveOddSumTo(1)) // 1*
+console.log(recursiveOddSumTo(10)) // 25*
 
 // 1. Функцію яка ітеративно (в циклі) буде знаходити суму всіх непарних додатніх чисел до якогось числа.
 
 // Приклад:
 
-// function iterativeOddSumTo(number) {
+function iterativeOddSumTo(number) {
 
-// 	let result = 0;
+	let result = 0;
   
-//  for (let i=1; i<=number; i+=2) {
-// 	// result += i ;
-// 	result = result + i;
-//  };
-//  return result;
-// };
+ for (let i=1; i<=number; i+=2) {
+	// result += i ;
+	result = result + i;
+ };
+ return result;
+};
 
-// console.log(iterativeOddSumTo(1)); // 1*
-// console.log(iterativeOddSumTo(10)); // 25*
+console.log(iterativeOddSumTo(1)); // 1*
+console.log(iterativeOddSumTo(10)); // 25*
 
