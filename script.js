@@ -12,13 +12,14 @@
 
 // durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  *// поверне '86400 seconds'*
 // durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days')  *// поверне '362 days'*
+
 function durationBetweenDates (start, end, typeTimes) {
 
 let firstDate = new Date(start);
 let lastDate = new Date(end);
 
 
-let difference = Date.parse(lastDate) - Date.parse(firstDate);
+let difference = Math.abs((lastDate) - (firstDate));
 
 if (typeTimes === 'seconds') {
 	return (difference / 1000 ) + ' seconds';
@@ -27,7 +28,7 @@ if (typeTimes === 'seconds') {
 } else if (typeTimes === 'hours') {
 	return (difference / (1000 * 3600)) + ' hours';
 } else if (typeTimes === 'days') {
-	return Math.abs((difference / (1000 * 3600 * 24))) + ' days';
+	return (difference / (1000 * 3600 * 24)) + ' days';
 };
 	
 };
