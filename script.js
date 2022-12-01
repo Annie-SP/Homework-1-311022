@@ -2,34 +2,34 @@
 //1. Напишіть функцію `addThemAll` яка буде знаходити сумму усіх своїх аргументів незалежно від їх кількості (але без використання вбутованого об'єкту Math).
 //Використайте оператор розширення:**
     
-    // console.log(addThemAll(2,4)); // 6*
-    // console.log(addThemAll(1,2,3,4)); // 10*
-    // console.log(addThemAll(5,5,10)); // 20*
+    console.log(addThemAll(2,4)); // 6*
+    console.log(addThemAll(1,2,3,4)); // 10*
+    console.log(addThemAll(5,5,10)); // 20*
     
-    // function addThemAll (a, b, ...args) {
-    // 	let sum = a + b;
-    // 	for (let arg of args){
-    // 		sum += arg;
-    // 	}
-    // 	return sum;
-    // }
+    function addThemAll (a, b, ...args) {
+    	let sum = a + b;
+    	for (let arg of args){
+    		sum += arg;
+    	}
+    	return sum;
+    }
 
     // тут пишете свій код*
 
 // 2. **Задача на використання замикання. Напишіть функцію яка працює таким чином: 
 // `multiply(a)(b)` *// a * b***
     
-    // console.log(multiply(5)(5))		// 25*
-    // console.log(multiply(2)(-2))	        // -4*
-    // console.log(multiply(4)(3))		// 12*
+    console.log(multiply(5)(5))		// 25*
+    console.log(multiply(2)(-2))	        // -4*
+    console.log(multiply(4)(3))		// 12*
     
-    // function multiply(a) {
-    // // тут ваш код*
-    //     function mylti(b){
-    //         return a * b;
-    //     }
-    //     return mylti;
-    // }
+    function multiply(a) {
+    // тут ваш код*
+        function mylti(b){
+            return a * b;
+        }
+        return mylti;
+    }
     
 // 3. **Напишіть функцію яка буде використовуватись для сортування масиву фільмів. 
     //Функція буде приймати два аргумента:**
@@ -90,25 +90,36 @@
    function detonatorTimer(delay) {
     // тут ваш код*	
         let timer = setInterval (function () {
-            console.log(delay);
-            if (delay === 0 ) {
+        	console.log(delay);
+            if (delay === 1 ) {
             console.log('BOOM!');
-            
+            clearInterval(timer);
         }
         delay--;
         }, 1000);
 
 }
 
-//         if (delay === 0 ) {
-//             console.log('BOOM!')
-//         }
-//         else 
-//         delay -=1;
-//         console.log(delay);
-// }
-    
-    
+
+
+   // function detonatorTimer(delay) {
+   //  // тут ваш код*	
+   //      let timer = setTimeout (function tick() {
+			
+// 		if (delay > 0 ) {
+// 			console.log(delay);
+   //          delay--;
+   //      } else
+// 	      console.log('BOOM!');
+
+// 		timer = setTimeout(tick, 1000);
+// 		}, 1000);
+		
+// 	      // clearTimeout(timer);
+
+		
+   // }
+ 
 
  
     
