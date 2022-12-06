@@ -1,35 +1,42 @@
 `use strict`;
 //1. Напишіть функцію `addThemAll` яка буде знаходити сумму усіх своїх аргументів незалежно від їх кількості (але без використання вбутованого об'єкту Math).
 //Використайте оператор розширення:**
-    
+
+    console.log(addThemAll(10));
     console.log(addThemAll(2,4)); // 6*
     console.log(addThemAll(1,2,3,4)); // 10*
     console.log(addThemAll(5,5,10)); // 20*
     
-    function addThemAll (a, b, ...args) {
-    	let sum = a + b;
+ function addThemAll (a, b, ...args) {
+        let sum;
+    	if (sum = a + b) {
     	for (let arg of args){
     		sum += arg;
     	}
     	return sum;
+    } else {
+        return a;
     }
+}
+
+
 
     // тут пишете свій код*
 
 // 2. **Задача на використання замикання. Напишіть функцію яка працює таким чином: 
 // `multiply(a)(b)` *// a * b***
     
-    console.log(multiply(5)(5))		// 25*
-    console.log(multiply(2)(-2))	        // -4*
-    console.log(multiply(4)(3))		// 12*
+    // console.log(multiply(5)(5))		// 25*
+    // console.log(multiply(2)(-2))	        // -4*
+    // console.log(multiply(4)(3))		// 12*
     
-    function multiply(a) {
-    // тут ваш код*
-        function mylti(b){
-            return a * b;
-        }
-        return mylti;
-    }
+    // function multiply(a) {
+    // // тут ваш код*
+    //     function mylti(b){
+    //         return a * b;
+    //     }
+    //     return mylti;
+    // }
     
 // 3. **Напишіть функцію яка буде використовуватись для сортування масиву фільмів. 
     //Функція буде приймати два аргумента:**
@@ -69,8 +76,15 @@
     
     // function byProperty(property, direction) {
 
+    //     if (property == 'releaseYear'){
+    //         console.log(Object.values(movies.releaseYear));
+    //     }
     // // тут ваш код*
+    //     // if (direction = "<") {
 
+    //     // } else if (direction = ">"){
+
+    //     // }
 
 
     // }
@@ -87,91 +101,101 @@
     // 1
     // BOOM!*
     
-   function detonatorTimer(delay) {
-    // тут ваш код*	
-        let timer = setInterval (function () {
-        	console.log(delay);
-            if (delay === 1 ) {
-            console.log('BOOM!');
-            clearInterval(timer);
-        }
-        delay--;
-        }, 1000);
 
+  function detonatorTimer(delay) {
+    // тут ваш код* 
+        let timer = setInterval (function () {
+            if (delay === 0 ) {
+                console.log('BOOM!');                         
+                clearInterval(timer);
+            } else 
+                console.log(delay);
+                delay--; 
+        }, 1000);
 }
 
 
+//    function detonatorTimer(delay) {
+//     let timer = setTimeout (function () {
+// }
 
-   // function detonatorTimer(delay) {
-   //  // тут ваш код*	
+
+    // тут ваш код*	
    //      let timer = setTimeout (function tick() {
 			
 // 		if (delay > 0 ) {
 // 			console.log(delay);
    //          delay--;
-   //      } else
+   //      } else 
 // 	      console.log('BOOM!');
 
 // 		timer = setTimeout(tick, 1000);
 // 		}, 1000);
 		
-// 	      // clearTimeout(timer);
-
-		
+// 	       clearTimeout(timer);
    // }
  
 
  
     
-// 5. **Напишіть об'єкт в якому опишіть свої довільні властивості та довільні методи (2-3 штуки) що ці властивості виводять. Наприклад:**
-    
-//     let me = {
-//     name: 'Mykola',
-//     residency: 'Lviv',
-//     gender: 'male',
-//     age: 31,
-//     hobby: 'crafting',
-//     defaultMood: 'focused',
-//     currentMood: 'sleepy',
-//     introduce() {
-//     console.log(`My name is ${this.name} and I live in ${this.residency}`);
-//     },
-//     prognose() {
-//     console.log(`I hope that next year I'm gonna be ${this.age+1}`);
-//     },
-//     describeMyMood(){
-//     console.log(`Mostly I'm ${this.defaultMood}, but now I'm ${this.currentMood}`);
-//     }
-//     }
-    
-//     me.introduce();
-//     me.prognose();
-//     me.describeMyMood();
-    
+// 5. **Напишіть об'єкт в якому опишіть свої довільні властивості та довільні методи (2-3 штуки)
+ // що ці властивості виводять. Наприклад:**
+  
 //     Можете описати скільки хочете властивостей і не менше 2 методів.
 //     Не соромтесь)
+
+
+ let aboutMe = {
+    name: 'Hanna',
+    residency: 'Varash',
+    gender: 'female',
+    age: 26,
+    dream: 'Front-End Developer',
+    car: 'Audi',
+    defaultMood: 'happy',
+    currentMood: 'upset',
+    introduce() {
+    console.log(`My name is ${this.name} and I live in ${this.residency}`);
+    },
+    prognose() {
+    console.log(`I hope that next year I'm gonna be ${this.dream} and finally I'll buy a big and long awaited present for myself - ${this.car}`);
+    },
+    describeMyMood(){
+    console.log(`Mostly I'm ${this.defaultMood}, but now I'm ${this.currentMood}`);
+    },
+    }
+
+    aboutMe.introduce();
+    aboutMe.prognose();
+    aboutMe.describeMyMood();
+
     
-// 6. **А тепер зробіть всі свої методи з задачі `5` прив'язаними до контексту свого об'єкту - аби вони були захищені від перезапису об'єкту і їх можна було викликати в таймері:**
+// 6. **А тепер зробіть всі свої методи з задачі `5` прив'язаними до 
+    //контексту свого об'єкту - аби вони були захищені від перезапису об'єкту
+    // і їх можна було викликати в таймері:**
     
-//     let securedSelfIntroduce = *// якийсь код*
-//     let securedSelfPrognose = *// якийсь код*
-//     let securedSelfDescribeMyMood = *// якийсь код*
+    let securedSelfIntroduce = aboutMe.introduce.bind(aboutMe); // якийсь код*
+    let securedSelfPrognose = aboutMe.prognose.bind(aboutMe);// якийсь код*
+    let securedSelfDescribeMyMood = aboutMe.describeMyMood.bind(aboutMe); // якийсь код*
     
-//     setTimeout(securedSelfIntroduce, 1000); *// виведе коректний результат*
-//     setTimeout(securedSelfPrognose, 2000); *// виведе коректний результат*
-//     setTimeout(securedSelfDescribeMyMood, 3000); *// виведе коректний результат*
+    setTimeout(securedSelfIntroduce, 1000); // виведе коректний результат*
+    setTimeout(securedSelfPrognose, 2000); // виведе коректний результат*
+    setTimeout(securedSelfDescribeMyMood, 3000); // виведе коректний результат*
     
 // 7. **Напишіть функцію-декоратор яка вопвільнює виконання довільної функції на вказану кількість секунд.**
     
-//     function someFunction // тут напишіть довільну функцію яка робить якусь роботу зі своїми аргументами та виводить результат в консоль
+    // function someFunction(a, b){
+    //     console.log(a * b);
+    // } // тут напишіть довільну функцію яка робить якусь роботу зі своїми аргументами та виводить результат в консоль
     
-//     function slower(func, seconds) {
-//     *// тут ваш код для декоратора*
-//     }
+    // function slower(func, seconds) {
+
+    // // тут ваш код для декоратора*
+    // }
     
-//     let slowedSomeFunction = slower(someFunction, 5); *// обгортаєте свою довільну функцію 'someFunction' в декоратор*
+    // let slowedSomeFunction = slower(someFunction, 5); // обгортаєте свою довільну функцію 'someFunction' в декоратор*
     
-//     slowedSomeFunction(/*якісь аргументи*/) *// викликаєте декоратор*
+    // slowedSomeFunction(/*якісь аргументи*/) // викликаєте декоратор*
     
-//     *// виведе в консоль "Chill out, you will get you result in 5 seconds"
-//     //...через 5 секунд виведе результат роботи 'someFunction*'
+    // виведе в консоль "Chill out, you will get you result in 5 seconds"
+    //...через 5 секунд виведе результат роботи 'someFunction*'
