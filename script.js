@@ -1,106 +1,96 @@
 `use strict`;
-// Напишіть функцію яка буде буде приймати 3 параметри
-
-// - початкову дату (string)
-// - кінцеву дату (string)
-// - розмірність ('days', 'hours', 'minutes', seconds)
-
-// Функція повертатиме часовий період між цими датами згідно розмірності.
-// Також вкажіть значення по замовчуванню для всіх цих параметрів (на ваш вибір).
-// Функція має коректно працювати навіть якщо початкова дата пізніше ніж кінцева дата.
-// Приклади:
-
-// durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  *// поверне '86400 seconds'*
-// durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days')  *// поверне '362 days'*
-
-function durationBetweenDates (start, end, typeTimes) {
-
-let firstDate = new Date(start);
-let lastDate = new Date(end);
 
 
-let difference = Math.abs((lastDate) - (firstDate));
+// Реалізуйте наступну систему, схожу до розглянутої на вебінарі:
 
-if (typeTimes === 'seconds') {
-	return (difference / 1000 ) + ' seconds';
-} else if (typeTimes === 'minutes') {
-	return  (difference / (1000*60) )  + ' minutes';
-} else if (typeTimes === 'hours') {
-	return (difference / (1000 * 3600)) + ' hours';
-} else if (typeTimes === 'days') {
-	return (difference / (1000 * 3600 * 24)) + ' days';
-};
-	
-};
-
-durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds');  // поверне '86400 seconds'*
-console.log(durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds'));
-durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days');  // поверне '362 days'*
-console.log(durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'));
+// 1) чотири класи для створення об'єктів-сутностей (це можуть бути тварини, покемони, раси і т.д. - проявіть фантазію)
+// 2) у кожного класу має бути мінімум 3 властивості та мінімум 3 методи(але можна й більше)
+// 3) у кожного класу має бути своя унікальна властивість
+// 4) у кожного класу має бути приватна властивість
+// 5) у двох класів має бути спільний предок та спільний метод характерний тільки для них
+// 6) у всіх чотирьох класів має бути один (крім проміжних) клас-предок
 
 
-// **Задача про перетворення об'єкту**
+class Lego{
+	#yearOfRelise
+	constructor(model, yearOfRelise){
+		this.model = model
+		this.#yearOfRelise = yearOfRelise
+	}
+	modelNumber = () => console.log(`Model number ${this.model}` )
+	reliseYear = () => console.log(`Relise year of Lego is ${this.#yearOfRelise}`)
+}
 
-// Допустимо у вас є об'єкт, у якому кожен ключ - це назва товару (одинм словом), 
-// а значення - його ціна.
-// Напишіть функцію яка буде всі ключі переводити у нижній регістр, 
-// \а всі ціни буде заокруглювати до двох знаків після коми.
-// Приклад:
+class legoGender extends Lego{
+	constructor(gender, model, yearOfRelise){
+		super(model, yearOfRelise)
+		this.gender = gender
+	}
+	genderFor = () => console.log(`This type of lego is only for ${this.gender}`)	
+}
 
-// приклад об'єкту*
-const priceData = {
-  Apples: '23.4',
-  BANANAS: '48',
-  oRAnGEs: '48.7584',
-};
+class legoClassic extends Lego{	
+	constructor( age, details, model, yearOfRelise){
+		super(model, yearOfRelise)
+		this.category = "Lego Classic"
+		this.age = age
+		this.details = details
+		
+	}
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	countDet = () => console.log(`The model ${this.model} of ${this.category} have ${this.details} details`)
+	themeOfLego = () => console.log(`This type of ${this.category} spans so many different age groups, there’s fun for all the family and imagination for every generation. `)
+}
 
-function optimizer(data) {
-  // тут ваш код*
-	return Object.fromEntries(
-		Object.entries(priceData).map(([key, value]) => 
-			[key.toLowerCase(), parseFloat((value)).toFixed(2)]
-			));
-};
 
-let updatedPriceData = optimizer(priceData);
+class legoFriends extends legoGender{
+	constructor(age, details, model, yearOfRelise, gender){
+		super(model,yearOfRelise, gender)
+		this.category = "Lego Friends"
+		this.age = age
+		this.details = details
+		
+	}
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	countDet = () => console.log(`The model ${this.model} of ${this.category} have ${this.details} details`)
+	themeOfLego = () => console.log(`This type of ${this.category} allows kids tell their own stories, work on interpersonal skills and play out real-life scenarios that celebrate friendship.`)
 
-console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '48.76'}*
+}
 
-// **Задача про рекурсію та ітерацію**
+class legoCity extends legoGender{
+	constructor( age, details,  model, yearOfRelise, gender){
+		super(model,yearOfRelise, gender)
+		this.category = "Lego City"
+		this.age = age
+		this.details = details
+		
+	}
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	countDet = () => console.log(`The ${this.model} of ${this.category} have ${this.details} details`)
+	themeOfLego = () => console.log(`This type of ${this.category} allows to connect and style your own personal City.`);
 
-// Напишіть:
+}
 
-// 1. Функцію яка рекурсивно буде знаходити суму всіх непарних додатніх чисел до якогось числа.
+class legoDuplo extends Lego{
+	constructor(age, details, model, yearOfRelise){
+		super(model, yearOfRelise)
+		this.category = "Lego Duplo"
+		this.age = age
+		this.details = details
+		
+	}
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	countDet = () => console.log(`The ${this.model} of ${this.category} have ${this.details} details`)
+	themeOfLego = () => console.log(`This type of ${this.category} building blocks unleash little ones creativity through developmental learning.`);
 
-// Приклад:
+}
 
-function recursiveOddSumTo(number) {
 
-  if (number === 1){
-  	return 1
-  }
-  return (number*(number % 2)) + recursiveOddSumTo(number-1) ; 
-
-};
-
-console.log(recursiveOddSumTo(1)) // 1*
-console.log(recursiveOddSumTo(10)) // 25*
-
-// 1. Функцію яка ітеративно (в циклі) буде знаходити суму всіх непарних додатніх чисел до якогось числа.
-
-// Приклад:
-
-function iterativeOddSumTo(number) {
-
-	let result = 0;
-  
- for (let i=1; i<=number; i+=2) {
-	// result += i ;
-	result = result + i;
- };
- return result;
-};
-
-console.log(iterativeOddSumTo(1)); // 1*
-console.log(iterativeOddSumTo(10)); // 25*
-
+const legoClassic1 = new legoClassic("4-6", 399, 10111 , 2020);
+console.log(legoClassic1);
+const legoFriends1 = new legoFriends("4-8", 399, "boys", 10111, 2022);
+const legoCity1 = new legoCity('4-8', 378,'boys', 110712, 2021);
+legoFriends1.countDet();
+legoClassic1.reliseYear();
+console.log(legoCity1.details);
+console.log(legoFriends1.#reliseYear);
