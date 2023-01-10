@@ -30,56 +30,58 @@ class legoGender extends Lego{
 }
 
 class legoClassic extends Lego{	
-	constructor( age, details, model, yearOfRelise){
+	constructor( age, details, color, model, yearOfRelise){
 		super(model, yearOfRelise)
 		this.category = "Lego Classic"
 		this.age = age
 		this.details = details
+		this.color = color;
 		
 	}
-	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
-	countDet = () => console.log(`The model ${this.model} of ${this.category} have ${this.details} details`)
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years. These have different colors`)
+	countDet = () => console.log(`The model ${this.model} of ${this.category} have ${this.details} details and such ${this.color} `)
 	themeOfLego = () => console.log(`This type of ${this.category} spans so many different age groups, there’s fun for all the family and imagination for every generation. `)
 }
 
 
 class legoFriends extends legoGender{
-	constructor(age, details, model, yearOfRelise, gender){
+	constructor(age, details, heroes, model, yearOfRelise, gender){
 		super(model,yearOfRelise, gender)
 		this.category = "Lego Friends"
 		this.age = age
 		this.details = details
-		
+		this.heroes = heroes
 	}
 	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
 	countDet = () => console.log(`The model ${this.model} of ${this.category} have ${this.details} details`)
-	themeOfLego = () => console.log(`This type of ${this.category} allows kids tell their own stories, work on interpersonal skills and play out real-life scenarios that celebrate friendship.`)
+	themeOfLego = () => console.log(`This type of ${this.category} allows kids tell their own stories, work on interpersonal skills and play out real-life scenarios that celebrate friendship. It model ${this.model} is about  ${this.heroes} heroes`)
 
 }
 
 class legoCity extends legoGender{
-	constructor( age, details,  model, yearOfRelise, gender){
+	constructor( age, details, theme,  model, yearOfRelise, gender){
 		super(model,yearOfRelise, gender)
 		this.category = "Lego City"
 		this.age = age
 		this.details = details
-		
+		this.theme = theme
 	}
-	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years. This ${this.category} have different theme. The theme of ${this.model} is ${this.theme}`)
 	countDet = () => console.log(`The ${this.model} of ${this.category} have ${this.details} details`)
 	themeOfLego = () => console.log(`This type of ${this.category} allows to connect and style your own personal City.`);
 
 }
 
 class legoDuplo extends Lego{
-	constructor(age, details, model, yearOfRelise){
+	constructor(age, details, sizeOfDetail, model, yearOfRelise){
 		super(model, yearOfRelise)
 		this.category = "Lego Duplo"
 		this.age = age
 		this.details = details
+		this.sizeOfDetail = "2 cm"
 		
 	}
-	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years`)
+	allInform = () => console.log(`The category ${this.category} are for children from ${this.age} years. Size of this details is ${sizeOfDetail}`)
 	countDet = () => console.log(`The ${this.model} of ${this.category} have ${this.details} details`)
 	themeOfLego = () => console.log(`This type of ${this.category} building blocks unleash little ones creativity through developmental learning.`);
 
